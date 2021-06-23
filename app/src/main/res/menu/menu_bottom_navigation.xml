@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/profile"
+            android:title="@string/bottom_nav_item_profile" />
+
+        <item
+            android:id="@+id/article"
+            android:title="@string/bottom_nav_item_article" />
+
+    </group>
+
+</menu>
