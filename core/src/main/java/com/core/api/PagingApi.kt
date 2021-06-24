@@ -1,10 +1,10 @@
 package com.core.api
 
-import com.core.dto.GetProductListRequest
+import com.core.dto.ArticleDto
 import com.core.dto.ResultDto
-import com.core.dto.response.ProductListResponse
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * Created by aMiir on 5/24/2021 AD
@@ -12,7 +12,12 @@ import retrofit2.http.POST
  */
 interface PagingApi {
 
-    @POST("mono/api/Product/GetAllProduct")
-    suspend fun getAllProduct(@Body getProductListRequest: GetProductListRequest): ResultDto<ProductListResponse>
+    @GET("everything")
+    suspend fun getAllArticle(
+        @Query("pageSize") pageSize: Int,
+        @Query("page") page: Int,
+        @Query("apiKey") apiKey: String,
+        @Query("q") q: String? = "bitcoin",
+    ): ResultDto<List<ArticleDto>>
 
 }

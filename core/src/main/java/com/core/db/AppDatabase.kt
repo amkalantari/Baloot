@@ -6,14 +6,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.core.dto.ConfigEntity
+import com.core.dto.ArticleDto
 
 /**
  * Main database description.
  */
 @Database(
     entities = [
-        ConfigEntity::class
+        ArticleDto::class
     ],
     version = 1, exportSchema = false
 )
@@ -53,6 +53,6 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 
-    abstract fun configDao(): ConfigDao
+    abstract fun articleDao(): ArticleDao
 
 }

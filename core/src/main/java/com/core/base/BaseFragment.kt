@@ -280,7 +280,6 @@ abstract class BaseFragment<E : ViewDataBinding> : Fragment() {
     open fun handleFailureStatus(status: NetworkState, onShowMessage: (String) -> Unit) {
         hideProgress(status.tag)
         if (isAdded)
-
             onShowMessage(
                 if (status.msg.isEmpty())
                     if (status.type.value != 0) {

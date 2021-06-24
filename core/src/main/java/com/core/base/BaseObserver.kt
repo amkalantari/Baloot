@@ -22,7 +22,6 @@ import timber.log.Timber
 import java.io.EOFException
 import java.io.File
 import java.io.IOException
-import java.net.UnknownServiceException
 import java.util.concurrent.Executors
 
 /**
@@ -76,7 +75,7 @@ interface BaseObserver {
     ) {
         addDisposable(
             observable
-//                .observeOn(AndroidSchedulers.mainThread())
+
                 .subscribeOn(Schedulers.from(ioThreads))
                 .subscribe({ result ->
                     onSuccess?.let {
@@ -98,7 +97,7 @@ interface BaseObserver {
     ) {
         addDisposable(
             observable
-//                .observeOn(AndroidSchedulers.mainThread())
+
                 .subscribeOn(Schedulers.from(ioThreads))
                 .subscribe({ result ->
                     onSuccess?.let {
@@ -120,7 +119,7 @@ interface BaseObserver {
     ) {
         addDisposable(
             observable
-//                .observeOn(AndroidSchedulers.mainThread())
+
                 .subscribeOn(Schedulers.from(ioThreads))
                 .subscribe({ result ->
                     onSuccess?.let {
@@ -142,7 +141,7 @@ interface BaseObserver {
     ) {
         addDisposable(
             observable
-//                .observeOn(AndroidSchedulers.mainThread())
+
                 .subscribeOn(Schedulers.from(ioThreads))
                 .subscribe({
                     onSuccess?.let {
@@ -158,14 +157,14 @@ interface BaseObserver {
     }
 
     fun <T> handlerResult(tag: String, result: ResultDto<T>): Response<T?> {
-        if (result.code == 200) {
-            val data = result.data
+        if (result.status == "ok") {
+            val data = result.articles
             return if (data != null) {
                 hideProgressAction(tag)
-                Response(result.data, NetworkState.loaded(tag))
+                Response(result.articles, NetworkState.loaded(tag))
             } else {
                 Response(
-                    result.data,
+                    result.articles,
                     NetworkState.error(
                         ErrorType.NullPointException,
                         tag = tag,
@@ -175,15 +174,11 @@ interface BaseObserver {
             }
         } else {
             return Response(
-                result.data, when (result.code) {
-                    401 -> NetworkState.error(ErrorType.Authorization, tag = tag)
-                    403 -> NetworkState.error(ErrorType.Forbidden, tag = tag)
-                    else -> NetworkState.error(
-                        ErrorType.Undefine,
-                        tag = tag,
-                        msg = result.message ?: ""
-                    )
-                }
+                result.articles, NetworkState.error(
+                    ErrorType.Undefine,
+                    tag = tag,
+                    msg = result.message ?: ""
+                )
             )
         }
     }

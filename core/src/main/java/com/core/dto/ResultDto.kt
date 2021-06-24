@@ -5,11 +5,14 @@ import androidx.annotation.Keep
 @Keep
 class ResultDto<T> {
     @Keep
-    var code = 0
+    var status = ""
+
+    @Keep
+    var totalResults: String? = null
 
     @Keep
     var message: String? = null
 
     @Keep
-    var data: T? = null
+    var articles: T? = null
 }

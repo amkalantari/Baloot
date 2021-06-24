@@ -1,7 +1,8 @@
 package com.amiir.baloot.di
 
-import com.amiir.baloot.ui.splash.viewModel.SplashViewModelFactory
 import com.amiir.baloot.ui.main.viewModel.MainViewModelFactory
+import com.amiir.baloot.ui.splash.viewModel.SplashViewModelFactory
+import com.core.repository.PagingRepository
 import dagger.Module
 import dagger.Provides
 
@@ -15,8 +16,8 @@ class ViewModelFactory {
     }
 
     @Provides
-    fun provideMainViewModelFactory(): MainViewModelFactory {
-        return MainViewModelFactory()
+    fun provideMainViewModelFactory(pagingRepository: PagingRepository): MainViewModelFactory {
+        return MainViewModelFactory(pagingRepository)
     }
 
 }

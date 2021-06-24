@@ -2,23 +2,26 @@ package com.core.dataSource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.core.dto.GetProductListRequest
+import com.core.dto.ArticleDto
+import com.core.dto.GetArticleListRequest
 import com.core.dto.Status
-import com.core.dto.response.ProductItem
 import com.core.repository.PagingRepository
+import com.core.repository.PagingRepositoryImpl.Companion.API_KEY
+import com.core.repository.PagingRepositoryImpl.Companion.NETWORK_PAGE_SIZE
 
 
-class ProductListDataSource(
-    val request: GetProductListRequest,
-    private val pageSize: Int,
+class ArticleListDataSource(
     private val pagingRepository: PagingRepository
-) : PagingSource<Int, ProductItem>() {
+) : PagingSource<Int, ArticleDto>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ProductItem> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticleDto> {
         val pageNumber = params.key ?: 1
-        val temp = request
-        temp.pageNumber = pageNumber
-        val result = pagingRepository.getAllProduct(request)
+        val result =
+            pagingRepository.getArticle(
+                GetArticleListRequest(
+                    pageNumber, NETWORK_PAGE_SIZE
+                )
+            )
 
         return when (result.networkState.status) {
             Status.FAILED -> {
@@ -27,7 +30,7 @@ class ProductListDataSource(
             else -> {
                 val data = result.onSuccess
                 val nextPageNumber: Int? = data?.let { res ->
-                    if (res.size >= pageSize) {
+                    if (res.size >= NETWORK_PAGE_SIZE) {
                         pageNumber + 1
                     } else {
                         null
@@ -44,6 +47,6 @@ class ProductListDataSource(
         }
     }
 
-    override fun getRefreshKey(state: PagingState<Int, ProductItem>): Int = 1
+    override fun getRefreshKey(state: PagingState<Int, ArticleDto>): Int = 1
 
 }

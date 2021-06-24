@@ -2,6 +2,8 @@ package com.core.db
 
 import android.util.Log
 import androidx.room.TypeConverter
+import com.core.dto.ArticleDto
+import com.core.dto.SourceDto
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -19,7 +21,7 @@ object OperatorTypeConverters {
                 try {
                     it.toInt()
                 } catch (ex: NumberFormatException) {
-                    Log.e("OperatorTypeConverters","Cannot convert ${ex.message} to number")
+                    Log.e("OperatorTypeConverters", "Cannot convert ${ex.message} to number")
                     null
                 }
             }
@@ -41,6 +43,25 @@ object OperatorTypeConverters {
     @JvmStatic
     fun mapToString(value: Map<String, String>?): String =
         toJson(value)
+
+    @TypeConverter
+    @JvmStatic
+    fun stringToSource(value: String): SourceDto =
+        fromJson(value)
+
+    @TypeConverter
+    @JvmStatic
+    fun sourceToString(value: SourceDto): String = toJson(value)
+
+    @TypeConverter
+    @JvmStatic
+    fun stringToArticle(value: String): ArticleDto =
+        fromJson(value)
+
+    @TypeConverter
+    @JvmStatic
+    fun articleToString(value: ArticleDto): String = toJson(value)
+
 
     @TypeConverter
     @JvmStatic
