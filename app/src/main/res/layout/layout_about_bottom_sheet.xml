@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <com.core.widget.ConstraintCustom
+        android:id="@+id/bottom_sheet_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:orientation="vertical"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="56dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <com.core.widget.ImageViewCustom
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            app:srcCompat="@drawable/ic_important_note" />
+
+        <com.core.widget.TextViewCustom
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16"
+            android:fontFamily="@font/iranyekan_bold"
+            android:text="@string/about_title"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/font_size_14"
+            app:layout_constraintBottom_toBottomOf="@id/icon"
+            app:layout_constraintEnd_toStartOf="@id/icon"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/icon" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black_12"
+            app:layout_constraintTop_toBottomOf="@id/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/dimen_16"/>
+
+        <com.core.widget.TextViewCustom
+            android:id="@+id/description_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:layout_marginBottom="@dimen/dimen_24"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:fontFamily="@font/iranyekan_light"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/font_size_14"
+            android:text="@string/about_desc"
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            app:layout_constraintBottom_toTopOf="@id/divider2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/black_12"
+            app:layout_constraintTop_toBottomOf="@id/description_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintBottom_toTopOf="@id/dismiss_button"
+            android:layout_marginBottom="@dimen/dimen_16"/>
+
+
+
+            <com.core.widget.TextViewCustom
+                android:id="@+id/dismiss_button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/dimen_16"
+                android:background="@drawable/background_button_common"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/iranyekan_bold"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="@string/dismiss_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_14"
+                tools:targetApi="m"
+                tools:ignore="UnusedAttribute"
+                app:layout_constraintTop_toBottomOf="@id/divider2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="@dimen/dimen_16"
+                android:layout_marginBottom="@dimen/dimen_16"/>
+
+
+    </com.core.widget.ConstraintCustom>
+</layout>

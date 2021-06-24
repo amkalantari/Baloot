@@ -178,15 +178,11 @@ abstract class BaseFragment<E : ViewDataBinding> : Fragment() {
     }
 
     open fun showProgress(tag: String) {
-        if (!tag.contains("getAllOrder")) {
-            skeletonScreen?.show()
-        }
+        skeletonScreen?.show()
     }
 
     open fun hideProgress(tag: String) {
-        if (!tag.contains("getAllOrder")) {
-            skeletonScreen?.hide()
-        }
+        skeletonScreen?.hide()
     }
 
     open fun backStack(tag: String) {}

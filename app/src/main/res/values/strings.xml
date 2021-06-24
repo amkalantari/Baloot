@@ -3,4 +3,9 @@
     <string name="bottom_nav_item_profile">حساب کاربری</string>
     <string name="bottom_nav_item_article">مقاله
     </string>
+    <string name="empty_list_status">is Empty</string>
+    <string name="github_title">GitHub</string>
+    <string name="about_title">About Me</string>
+    <string name="about_desc"><![CDATA[Developer with about 5 years experience, specializing in Android development, designed & developed enterprise applications . Also a quick learner, good in team works]]></string>
+    <string name="dismiss_title">بستن</string>
 </resources>

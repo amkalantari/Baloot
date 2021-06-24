@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="item"
+            type="com.core.dto.ArticleDto" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.core.widget.ImageViewCustom
             android:id="@+id/img"
+            image_url="@{item.urlToImage}"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="@dimen/dimen_32"
@@ -15,30 +23,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.core.widget.TextViewCustom
-            android:id="@+id/git"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_16"
-            android:text="@string/github_title"
-            android:gravity="center"
-            android:fontFamily="@font/iranyekan_bold"
-            android:textSize="@dimen/font_size_20"
+            android:text="@{item.title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img" />
 
         <com.core.widget.TextViewCustom
-            android:id="@+id/about"
+            android:id="@+id/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_16"
-            android:text="@string/about_title"
-            android:gravity="center"
-            android:fontFamily="@font/iranyekan_bold"
-            android:textSize="@dimen/font_size_20"
+            android:text="@{item.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/git" />
+            app:layout_constraintTop_toBottomOf="@id/title" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

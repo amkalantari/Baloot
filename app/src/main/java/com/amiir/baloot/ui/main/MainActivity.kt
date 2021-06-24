@@ -8,13 +8,16 @@ import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.amiir.baloot.R
 import com.amiir.baloot.databinding.ActivityMainBinding
 import com.amiir.baloot.di.DaggerAppComponent
-import com.core.parent.ParentActivity
 import com.amiir.baloot.ui.main.viewModel.MainViewModel
 import com.amiir.baloot.ui.main.viewModel.MainViewModelFactory
+import com.core.parent.ParentActivity
 import javax.inject.Inject
 
 class MainActivity : ParentActivity<MainViewModel, ActivityMainBinding>() {
@@ -33,9 +36,7 @@ class MainActivity : ParentActivity<MainViewModel, ActivityMainBinding>() {
             supportFragmentManager.findFragmentById(R.id.navHost) as NavHostFragment? ?: return
 
         navController = host.navController
-
         binding.bottomNavigation.setupWithNavController(navController)
-
         val navBarElevation =
             resources.getDimensionPixelSize(R.dimen.main_navbar_elevation).toFloat()
 
@@ -66,7 +67,6 @@ class MainActivity : ParentActivity<MainViewModel, ActivityMainBinding>() {
                     ContextCompat.getDrawable(this, R.drawable.ic_profile_active)
             }
         }
-
     }
 
     override fun getFactory(): ViewModelProvider.Factory = factory

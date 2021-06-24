@@ -12,7 +12,23 @@
     <fragment
         android:id="@+id/article"
         android:name="com.amiir.baloot.ui.main.ArticleFragment"
-        android:label="Article" />
+        android:label="Article">
+
+        <action
+            android:id="@+id/toDetail"
+            app:destination="@id/detail" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.amiir.baloot.ui.main.DetailFragment"
+        android:label="Detail">
+        <argument
+            android:name="item"
+            app:argType="com.core.dto.ArticleDto"
+            app:nullable="false" />
+    </fragment>
 
 
 </navigation>

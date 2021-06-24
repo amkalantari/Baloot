@@ -14,11 +14,10 @@
     </data>
 
     <com.core.widget.ConstraintCustom
-        android:id="@+id/container"
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layoutDirection="rtl"
-        tools:context=".ui.buyer.BuyerOrderTabFragment">
+        android:layoutDirection="rtl">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
@@ -35,12 +34,22 @@
             android:id="@+id/empty"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/red"
+            android:background="@color/gray"
             android:visibility="@{is_empty ? View.VISIBLE : View.GONE, default=gone}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <com.core.widget.TextViewCustom
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/empty_list_status"/>
+
+        </LinearLayout>
 
 
     </com.core.widget.ConstraintCustom>

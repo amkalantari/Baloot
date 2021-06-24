@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_arrow.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable-v24/ic_important_note.xml" value="0.1205" />
         <entry key="app/src/main/res/drawable/background_bottom_sheet.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/background_splash.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_profile.xml" value="0.175" />
@@ -12,7 +13,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_article.xml" value="0.14074074074074075" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.18161094224924013" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/layout/layout_about_bottom_sheet.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_item_buyer_order.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.3880208333333333" />
         <entry key="core/src/main/res/drawable/background_button_common.xml" value="0.175" />
